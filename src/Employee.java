@@ -8,8 +8,8 @@ public class Employee extends Person {
         this.role = "";
     }
 
-    public Employee(String name, int age, String email, String employeeId, String role) {
-        super(name, age, email);
+    public Employee(String name, int age, String sex, String employeeId, String role) {
+        super(name, age, sex);
         this.employeeId = employeeId;
         this.role = role;
     }
