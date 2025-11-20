@@ -48,8 +48,13 @@ public class Ride implements RideInterface {
 
     @Override
     public void addVisitorToHistory(Visitor visitor) {
+       
+    }
+
+    @Override
+    public void addVisitorToQueue(Visitor visitor) {
         if (visitor == null){
-            System.out.println("Visitor is null. Can't add to history");
+            System.out.println("Visitor is null. Can't add to queue");
             return;
         }
 
@@ -57,13 +62,8 @@ public class Ride implements RideInterface {
             queue.add(visitor);
             System.out.println("Visitor " + visitor.getName() + " added to the queue.");
         } else {
-            System.out.println("Visitor " + visitor.getName() + " cannot ride due to height restriction.");
+            System.out.println("Visitor " + visitor.getName() + " cannot ride due to height limit.");
         }
-    }
-
-    @Override
-    public void addVisitorToQueue(Visitor visitor) {
-        // TODO Auto-generated method stub
         
     }
 
