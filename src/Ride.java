@@ -4,9 +4,9 @@ import java.util.Queue;
 public class Ride implements RideInterface {
     private String rideName;
     private int minHeight; // Height limit
-    private Employee operator; 
+    private Employee operator;
 
-     // Queue to store waiting visitors
+    // Queue to store waiting visitors
     private Queue<Visitor> queue = new LinkedList<>();
 
     // Default constructor
@@ -47,13 +47,8 @@ public class Ride implements RideInterface {
     }
 
     @Override
-    public void addVisitorToHistory(Visitor visitor) {
-       
-    }
-
-    @Override
     public void addVisitorToQueue(Visitor visitor) {
-        if (visitor == null){
+        if (visitor == null) {
             System.out.println("Visitor is null. Can't add to queue");
             return;
         }
@@ -64,7 +59,29 @@ public class Ride implements RideInterface {
         } else {
             System.out.println("Visitor " + visitor.getName() + " cannot ride due to height limit.");
         }
-        
+
+    }
+
+    @Override
+    public void removeVisitorFromQueue() {
+
+        if (!queue.isEmpty()) {
+            Visitor removedVisitor = queue.poll();
+            System.out.println("Visitor " + removedVisitor.getName() + " has been removed from the queue.");
+        } else {
+            System.out.println("Queue is empty.");
+        }
+
+    }
+
+    @Override
+    public void printQueue() {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void addVisitorToHistory(Visitor visitor) {
+        // TODO Auto-generated method stub
     }
 
     @Override
@@ -80,30 +97,15 @@ public class Ride implements RideInterface {
     }
 
     @Override
-    public void printQueue() {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
     public void printRideHistory() {
         // TODO Auto-generated method stub
-        
-    }
 
-    @Override
-    public void removeVisitorFromQueue() {
-        // TODO Auto-generated method stub
-        
     }
 
     @Override
     public void runOneCycle() {
         // TODO Auto-generated method stub
-        
+
     }
-
-    
-
 
 }
