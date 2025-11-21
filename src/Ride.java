@@ -76,7 +76,17 @@ public class Ride implements RideInterface {
 
     @Override
     public void printQueue() {
-        // TODO Auto-generated method stub
+        if (queue.isEmpty()) {
+            System.out.println("Queue is empty.");
+            return;
+        }
+        System.out.println("Queue of visitors:");
+        for (Visitor visitor : queue) {
+            System.out.println("ID:" + visitor.getVisitorID() + ", name: " + visitor.getName() + ", age:"
+                    + visitor.getAge() + ", sex:" + visitor.getSex() +
+                    "type:" + visitor.getVisitorType() + ", Height: " + visitor.getHeight());
+        }
+
     }
 
     @Override
