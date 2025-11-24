@@ -6,8 +6,8 @@ public class Ride implements RideInterface {
     private int minHeight; // Height limit
     private Employee operator;
 
-    // Queue to store waiting visitors
     private Queue<Visitor> queue = new LinkedList<>();
+    private LinkedList<Visitor> rideHistory = new LinkedList<>();
 
     // Default constructor
     public Ride() {
@@ -91,7 +91,15 @@ public class Ride implements RideInterface {
 
     @Override
     public void addVisitorToHistory(Visitor visitor) {
-        // TODO Auto-generated method stub
+         if (visitor == null) {
+            System.out.println("Visitor is null. Can't add to queue");
+            return;
+        }
+
+        //histroy from queue, so no need to check heigh
+
+        rideHistory.add(visitor);
+        System.out.println("Visitor " + visitor.getName() + " added to ride history.");
     }
 
     @Override
