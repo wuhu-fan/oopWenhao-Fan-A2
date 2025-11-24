@@ -91,12 +91,12 @@ public class Ride implements RideInterface {
 
     @Override
     public void addVisitorToHistory(Visitor visitor) {
-         if (visitor == null) {
-            System.out.println("Visitor is null. Can't add to queue");
+        if (visitor == null) {
+            System.out.println("Visitor is null. Can't add to hisitory");
             return;
         }
 
-        //histroy from queue, so no need to check heigh
+        // histroy from queue, so no need to check heigh
 
         rideHistory.add(visitor);
         System.out.println("Visitor " + visitor.getName() + " added to ride history.");
@@ -104,7 +104,15 @@ public class Ride implements RideInterface {
 
     @Override
     public boolean checkVisitorFromHistory(Visitor visitor) {
-        // TODO Auto-generated method stub
+        if (visitor == null) {
+            System.out.println("Visitor is null. Can't check");
+            return false;
+        }
+        if (rideHistory.contains(visitor)) {
+            System.out.println("Visitor is in the ride history:" + rideName);
+            return true;
+        }
+
         return false;
     }
 
