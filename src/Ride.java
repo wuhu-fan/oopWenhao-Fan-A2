@@ -118,8 +118,8 @@ public class Ride implements RideInterface {
 
     @Override
     public int numberOfVisitors() {
-        if (rideHistory == null) {
-            System.out.println(rideName+" Ride history is null.");
+        if (rideHistory.isEmpty()) {
+            System.out.println(rideName+" Ride history is empty.");
             return 0;
         }
         return rideHistory.size();
