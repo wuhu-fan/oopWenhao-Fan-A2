@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Iterator;
 
 public class Ride implements RideInterface {
     private String rideName;
@@ -119,7 +120,7 @@ public class Ride implements RideInterface {
     @Override
     public int numberOfVisitors() {
         if (rideHistory.isEmpty()) {
-            System.out.println(rideName+" Ride history is empty.");
+            System.out.println(rideName + " Ride history is empty.");
             return 0;
         }
         return rideHistory.size();
@@ -127,8 +128,18 @@ public class Ride implements RideInterface {
 
     @Override
     public void printRideHistory() {
-        // TODO Auto-generated method stub
-
+        if (rideHistory.isEmpty()) {
+            System.out.println(rideName + " Ride history is empty.");
+            return;
+        }
+        System.out.println(rideName + " Ride history:");
+        Iterator<Visitor> iterator = rideHistory.iterator(); // MUST use Iterator (requirement)
+        while (iterator.hasNext()) {
+            Visitor visitor = iterator.next();
+            System.out.println("ID:" + visitor.getVisitorID() + ", name: " + visitor.getName() + ", age:"
+                    + visitor.getAge() + ", sex:" + visitor.getSex() +
+                    "type:" + visitor.getVisitorType() + ", Height: " + visitor.getHeight());
+        }
     }
 
     @Override
