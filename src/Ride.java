@@ -118,8 +118,11 @@ public class Ride implements RideInterface {
 
     @Override
     public int numberOfVisitors() {
-        // TODO Auto-generated method stub
-        return 0;
+        if (rideHistory == null) {
+            System.out.println(rideName+" Ride history is null.");
+            return 0;
+        }
+        return rideHistory.size();
     }
 
     @Override
