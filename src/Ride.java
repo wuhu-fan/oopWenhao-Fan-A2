@@ -144,13 +144,13 @@ public class Ride implements RideInterface {
     }
 
     public void sortRideHistory() {
-    if (rideHistory.isEmpty()) {
-        System.out.println(rideName + " Ride history is empty.");
-        return;
+        if (rideHistory.isEmpty()) {
+            System.out.println(rideName + " Ride history is empty.");
+            return;
+        }
+        Collections.sort(rideHistory, new VisitorComparator());
+        System.out.println("Finish Sorting.");
     }
-    Collections.sort(rideHistory, new VisitorComparator());
-    System.out.println("Finish Sorting.");
-}
 
     @Override
     public void runOneCycle() {

@@ -3,7 +3,8 @@ public class AssignmentTwo {
         AssignmentTwo assignmentTwo = new AssignmentTwo();
 
         // assignmentTwo.partThree();
-        assignmentTwo.partFourA();
+        // assignmentTwo.partFourA();
+        assignmentTwo.partFourB();
     }
 
     public void partThree() {
@@ -63,7 +64,29 @@ public class AssignmentTwo {
     }
 
 
-    public void partFourB() {}
+    public void partFourB() {
+         // Create a new Ride object
+        Employee operator = new Employee("John", 30, "male", "E001", "Operator");
+        Ride thunderStorm = new Ride("Thunder Storm", 140, operator);
+
+        Visitor visitor1 = new Visitor("Alice", 25, "male","E001", "Single ticket", 150);
+        Visitor visitor2 = new Visitor("Jacket", 22, "female", "E002","Single ticket", 160);
+        Visitor visitor3 = new Visitor("Alice", 28, "male","E003", "VIP", 145);
+        Visitor visitor4 = new Visitor("Andy", 24, "female", "E004","Annual pass", 170);
+        Visitor visitor5 = new Visitor("Macket", 29, "male","E005", "Annual pass", 155);
+
+        thunderStorm.addVisitorToHistory(visitor1);
+        thunderStorm.addVisitorToHistory(visitor5);
+        thunderStorm.addVisitorToHistory(visitor4);
+        thunderStorm.addVisitorToHistory(visitor2);
+        thunderStorm.addVisitorToHistory(visitor3);
+
+        thunderStorm.printRideHistory();
+        thunderStorm.sortRideHistory();
+        System.out.println("After sort by ID and Name:");
+        thunderStorm.printRideHistory();
+
+    }
     public void partFive() {}
     public void partSix() {}
     public void partSeven() {}
