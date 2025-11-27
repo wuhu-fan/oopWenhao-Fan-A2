@@ -173,12 +173,12 @@ public class Ride implements RideInterface {
             Visitor visitor = queue.poll();
             if (visitor.getHeight() >= minHeight) {
                 addVisitorToHistory(visitor); // add to history
-                System.out.println("Visitor: " + visitor.getName() + " is add to history.");
                 count++;
             } else {
                 System.out.println("Visitor " + visitor.getName() + " does not meet height limit.");
             }
         }
+        System.out.println("Run one cycle finish.");
         // after one cycle
         numOfCycles++;
     }
