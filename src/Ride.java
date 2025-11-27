@@ -1,5 +1,7 @@
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
@@ -11,17 +13,24 @@ public class Ride implements RideInterface {
     private Queue<Visitor> queue = new LinkedList<>();
     private LinkedList<Visitor> rideHistory = new LinkedList<>();
 
+    private int maxRider;
+    private int numOfCycles;
+
     // Default constructor
     public Ride() {
         this.rideName = "";
         this.minHeight = 0;
         this.operator = null;
+        this.maxRider = 1;
+        numOfCycles = 0;
     }
 
-    public Ride(String rideName, int minHeight, Employee operator) {
+    public Ride(String rideName, int minHeight, Employee operator, int maxRider) {
         this.rideName = rideName;
         this.minHeight = minHeight;
         this.operator = operator;
+        this.maxRider = maxRider;
+        this.numOfCycles = 0; // update by method
     }
 
     public String getRideName() {
@@ -154,8 +163,24 @@ public class Ride implements RideInterface {
 
     @Override
     public void runOneCycle() {
-        // TODO Auto-generated method stub
+        if (queue.isEmpty()) {
+            System.out.println("Queue is empty.");
+            return;
+        }
 
+        int count = 0;
+        while (!queue.isEmpty() && count < maxRider) {
+            Visitor visitor = queue.poll();
+            if (visitor.getHeight() >= minHeight) {
+                addVisitorToHistory(visitor); // add to history
+                System.out.println("Visitor: " + visitor.getName() + " is add to history.");
+                count++;
+            } else {
+                System.out.println("Visitor " + visitor.getName() + " does not meet height limit.");
+            }
+        }
+        // after one cycle
+        numOfCycles++;
     }
 
 }
