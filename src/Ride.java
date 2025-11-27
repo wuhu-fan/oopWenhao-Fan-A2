@@ -1,7 +1,8 @@
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
-import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.Iterator;
 
@@ -22,7 +23,7 @@ public class Ride implements RideInterface {
         this.minHeight = 0;
         this.operator = null;
         this.maxRider = 1;
-        numOfCycles = 0;
+        this.numOfCycles = 0;
     }
 
     public Ride(String rideName, int minHeight, Employee operator, int maxRider) {
@@ -181,6 +182,28 @@ public class Ride implements RideInterface {
         System.out.println("Run one cycle finish.");
         // after one cycle
         numOfCycles++;
+    }
+
+    public void exportRideHistory(String filename) {
+        if (rideHistory.isEmpty()) {
+            System.out.println("Ride history is empty.");
+            return;
+        }
+
+        try {
+            FileWriter file = new FileWriter(filename);
+
+            for (Visitor v : rideHistory) {
+                String line = v.getName() + "," + v.getAge() + "," + v.getSex() + "," +
+                        v.getVisitorID() + "," + v.getVisitorType() + "," + v.getHeight();
+                file.write(line + "\n");
+            }
+
+            System.out.println("Ride history exported to: " + filename);
+
+        } catch (IOException e) {
+            System.out.println("Error writing to file '" + filename + "': " + e.getMessage());
+        }
     }
 
 }
