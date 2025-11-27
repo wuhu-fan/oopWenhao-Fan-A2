@@ -97,15 +97,25 @@ public class AssignmentTwo {
         Visitor visitor3 = new Visitor("Jason", 28, "male", "E003", "VIP", 145);
         Visitor visitor4 = new Visitor("Andy", 24, "female", "E004", "Annual pass", 170);
         Visitor visitor5 = new Visitor("Macket", 29, "male", "E005", "Annual pass", 155);
+        Visitor visitor6 = new Visitor("AAA", 25, "male", "E006", "Single ticket", 150);
+        Visitor visitor7 = new Visitor("BBB", 22, "female", "E007", "Single ticket", 160);
+        Visitor visitor8 = new Visitor("CCC", 28, "male", "E008", "VIP", 145);
+        Visitor visitor9 = new Visitor("DDD", 24, "female", "E009", "Annual pass", 170);
+        Visitor visitor10 = new Visitor("EEE", 29, "male", "E0010", "Annual pass", 155);
        
         rollerCoaster.addVisitorToQueue(visitor1);
         rollerCoaster.addVisitorToQueue(visitor2);
         rollerCoaster.addVisitorToQueue(visitor3);
         rollerCoaster.addVisitorToQueue(visitor4);
         rollerCoaster.addVisitorToQueue(visitor5);
+        rollerCoaster.addVisitorToQueue(visitor6);
+        rollerCoaster.addVisitorToQueue(visitor7);
+        rollerCoaster.addVisitorToQueue(visitor8);
+        rollerCoaster.addVisitorToQueue(visitor9);
+        rollerCoaster.addVisitorToQueue(visitor10);
+
 
         rollerCoaster.printQueue();
-
         rollerCoaster.runOneCycle();
 
         System.out.println("After one cycle is run.");
