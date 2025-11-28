@@ -1,0 +1,5 @@
+Alice,25,male,E001,Single ticket,150
+Jacket,22,female,E002,Single ticket,160
+Jason,28,male,E003,VIP,145
+Andy,24,female,E004,Annual pass,170
+Macket,29,male,E005,Annual pass,155

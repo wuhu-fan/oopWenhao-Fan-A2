@@ -1,6 +1,5 @@
 import java.util.LinkedList;
 import java.util.Queue;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
@@ -189,20 +188,23 @@ public class Ride implements RideInterface {
             System.out.println("Ride history is empty.");
             return;
         }
-
+        PrintWriter writer = null; // 声明在外面
         try {
-            FileWriter file = new FileWriter(filename);
+            writer = new PrintWriter(filename);
 
             for (Visitor v : rideHistory) {
                 String line = v.getName() + "," + v.getAge() + "," + v.getSex() + "," +
                         v.getVisitorID() + "," + v.getVisitorType() + "," + v.getHeight();
-                file.write(line + "\n");
+                writer.write(line + "\n");
             }
-
             System.out.println("Ride history exported to: " + filename);
 
         } catch (IOException e) {
             System.out.println("Error writing to file '" + filename + "': " + e.getMessage());
+        } finally {
+            if (writer != null) {
+                writer.close(); // 必须关闭！否则文件可能为空
+            }
         }
     }
 
