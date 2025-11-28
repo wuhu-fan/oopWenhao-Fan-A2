@@ -5,7 +5,8 @@ public class AssignmentTwo {
         // assignmentTwo.partThree();
         // assignmentTwo.partFourA();
         // assignmentTwo.partFourB();
-        assignmentTwo.partFive();
+        // assignmentTwo.partFive();
+        assignmentTwo.partSix();
     }
 
     public void partThree() {
@@ -102,7 +103,7 @@ public class AssignmentTwo {
         Visitor visitor8 = new Visitor("CCC", 28, "male", "E008", "VIP", 145);
         Visitor visitor9 = new Visitor("DDD", 24, "female", "E009", "Annual pass", 170);
         Visitor visitor10 = new Visitor("EEE", 29, "male", "E0010", "Annual pass", 155);
-       
+
         rollerCoaster.addVisitorToQueue(visitor1);
         rollerCoaster.addVisitorToQueue(visitor2);
         rollerCoaster.addVisitorToQueue(visitor3);
@@ -114,7 +115,6 @@ public class AssignmentTwo {
         rollerCoaster.addVisitorToQueue(visitor9);
         rollerCoaster.addVisitorToQueue(visitor10);
 
-
         rollerCoaster.printQueue();
         rollerCoaster.runOneCycle();
 
@@ -124,6 +124,24 @@ public class AssignmentTwo {
     }
 
     public void partSix() {
+        // Create a new Ride object
+        Employee operator = new Employee("John", 30, "male", "E001", "Operator");
+        Ride rollerCoaster = new Ride("Roller Coaster", 140, operator, 3);
+
+        Visitor visitor1 = new Visitor("Alice", 25, "male", "E001", "Single ticket", 150);
+        Visitor visitor2 = new Visitor("Jacket", 22, "female", "E002", "Single ticket", 160);
+        Visitor visitor3 = new Visitor("Jason", 28, "male", "E003", "VIP", 145);
+        Visitor visitor4 = new Visitor("Andy", 24, "female", "E004", "Annual pass", 170);
+        Visitor visitor5 = new Visitor("Macket", 29, "male", "E005", "Annual pass", 155);
+
+        rollerCoaster.addVisitorToHistory(visitor1);
+        rollerCoaster.addVisitorToHistory(visitor2);
+        rollerCoaster.addVisitorToHistory(visitor3);
+        rollerCoaster.addVisitorToHistory(visitor4);
+        rollerCoaster.addVisitorToHistory(visitor5);
+        
+        rollerCoaster.exportRideHistory("ride history.txt");
+
     }
 
     public void partSeven() {
