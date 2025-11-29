@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.Iterator;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Ride implements RideInterface {
     private String rideName;
@@ -204,6 +207,54 @@ public class Ride implements RideInterface {
         } finally {
             if (writer != null) {
                 writer.close(); // 必须关闭！否则文件可能为空
+            }
+        }
+    }
+
+    public void importRideHistory(String filename) {
+        File file = new File(filename);
+        Scanner scanner = null;
+
+        try {
+            scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine().trim();
+
+                if (line.isEmpty()) {
+                    continue;
+                }
+
+                // split by comma 
+                String[] parts = line.split(",");
+
+                // 6 fields
+                if (parts.length != 6) {
+                    System.out.println("Invalid line: " + line);
+                    continue; 
+                }
+
+                try {
+                    String name = parts[0];
+                    int age = Integer.parseInt(parts[1]);
+                    String sex = parts[2];
+                    String visitorID = parts[3];
+                    String visitorType = parts[4];
+                    int height = Integer.parseInt(parts[5]);
+
+                    Visitor visitor = new Visitor(name, age, sex, visitorID, visitorType, height);
+                    addVisitorToHistory(visitor); 
+
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid number in line: " + line);
+                    continue;
+                }
+            }
+            System.out.println("Ride history import from: " + filename);
+        } catch (FileNotFoundException e) {
+            System.err.println("ERROR: File not found - " + filename);
+        } finally {
+            if (scanner != null) {
+                scanner.close(); 
             }
         }
     }
