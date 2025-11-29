@@ -6,7 +6,8 @@ public class AssignmentTwo {
         // assignmentTwo.partFourA();
         // assignmentTwo.partFourB();
         // assignmentTwo.partFive();
-        assignmentTwo.partSix();
+        // assignmentTwo.partSix();
+        assignmentTwo.partSeven();
     }
 
     public void partThree() {
@@ -58,7 +59,7 @@ public class AssignmentTwo {
         }
 
         int num = ferrisWheel.numberOfVisitors();
-        System.out.println("The number of " + ferrisWheel.getRideName() + ": " + num);
+        System.out.println("The number of " + ferrisWheel.getRideName() + " history: " + num);
 
         ferrisWheel.printRideHistory();
 
@@ -139,12 +140,22 @@ public class AssignmentTwo {
         rollerCoaster.addVisitorToHistory(visitor3);
         rollerCoaster.addVisitorToHistory(visitor4);
         rollerCoaster.addVisitorToHistory(visitor5);
-        
+
         rollerCoaster.exportRideHistory("ride history.txt");
 
     }
 
     public void partSeven() {
+        // Create a new Ride object
+        Employee operator = new Employee("John", 30, "male", "E001", "Operator");
+        Ride rollerCoaster = new Ride("Roller Coaster", 140, operator, 3);
+
+        rollerCoaster.importRideHistory("ride history.txt");
+
+        int num = rollerCoaster.numberOfVisitors();
+        System.out.println("The number of " + rollerCoaster.getRideName() + " history: " + num);
+
+        rollerCoaster.printRideHistory();
     }
 
 }

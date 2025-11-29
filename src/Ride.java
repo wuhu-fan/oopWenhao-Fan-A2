@@ -191,7 +191,7 @@ public class Ride implements RideInterface {
             System.out.println("Ride history is empty.");
             return;
         }
-        PrintWriter writer = null; // 声明在外面
+        PrintWriter writer = null; 
         try {
             writer = new PrintWriter(filename);
 
@@ -206,7 +206,7 @@ public class Ride implements RideInterface {
             System.out.println("Error writing to file '" + filename + "': " + e.getMessage());
         } finally {
             if (writer != null) {
-                writer.close(); // 必须关闭！否则文件可能为空
+                writer.close(); 
             }
         }
     }
